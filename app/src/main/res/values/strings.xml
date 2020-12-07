@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">LABTASK-FA17-BTN-005</string>
+    <string name="ques_display_txt" />
+    <string name="button">CHECK</string>
+
+
+    <string-array name="Questions">
+            <item>An Ostrich eye is bigger than its brain?</item>
+            <item>Bats are blind?</item>
+            <item>Polar bears have black skin?</item>
+        </string-array>
+
+    <string-array name="Answers">
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+    </string-array>
+    <string-array name="bool">
+        <item>true</item>
+        <item>false</item>
+    </string-array>
+
+
+
+</resources>
