@@ -9,14 +9,14 @@
 
     <TextView
         android:id="@+id/Ques_display"
-        android:layout_width="284dp"
-        android:layout_height="0dp"
+        android:layout_width="359dp"
+        android:layout_height="330dp"
         android:layout_marginTop="253dp"
         android:layout_marginBottom="37dp"
         android:text="@string/ques_display_txt"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.387" />
@@ -28,6 +28,7 @@
         android:layout_marginBottom="338dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Ques_display" />
 
@@ -43,6 +44,6 @@
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.117" />
+        app:layout_constraintVertical_bias="0.072" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,21 +18,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 private TextView display;
    private String[] Questions;
    private Button check;
-   public boolean ans = true;
-
+   public boolean watch = true;
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getSelectedItem()=="true")
+               //maketoast(String.valueOf(position));
+                if(position==0)
                 {
-                    Toast.makeText(this,"Right Answer",Toast.LENGTH_LONG).show();
-                    displayQuestion(getRandomNumberInRange(0,2));
+                    watch =true;
                 }
                 else
                 {
-                    Toast.makeText(this,"Wrong Answer",Toast.LENGTH_LONG).show();
-                    displayQuestion(getRandomNumberInRange(0,2));
-
+                    //Toast.makeText(this,"Wrong Answer",Toast.LENGTH_LONG).show();
+                    //displayQuestion(getRandomNumberInRange(0,2));
+                        watch=false;
                 }
+
+
     }
 
     @Override
@@ -42,6 +43,7 @@ private TextView display;
 
     private String[] Answers;
    private Spinner spinner;
+   private int Qno=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,19 +52,31 @@ private TextView display;
         Resources res = getResources();
         Questions = res.getStringArray(R.array.Questions);
         Answers = res.getStringArray(R.array.Answers);
-        int Qno = getRandomNumberInRange(0,2);
         display =findViewById(R.id.Ques_display);
-        displayQuestion(Qno);
         spinner = findViewById(R.id.spinner);
+        displayQuestion(Qno);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.bool,android.R.layout.simple_spinner_item);
 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 spinner.setAdapter(adapter);
-spinner.setOnItemClickListener(this::onItemSelected);
+        spinner.setOnItemSelectedListener(this);
 check = findViewById(R.id.check);
 check.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        maketoast("Your Answer :"+String.valueOf(watch)+"\n Right Answer :"+Answers[Qno]);
+  /*      if(String.valueOf(watch)==Answers[Qno])
+        {
+            maketoast("Right Answer...!");
+        }
+        else
+        {
+            maketoast("Wrong Answer...!");
 
+        }
+        */
+
+        Qno = getRandomNumberInRange(0,2);
+        displayQuestion(Qno);
     }
 });
 
@@ -83,6 +97,11 @@ check.setOnClickListener(new View.OnClickListener() {
         }
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
+    }
+
+    public void maketoast(String s)
+    {
+        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
     }
 
 
